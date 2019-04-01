@@ -1,0 +1,15 @@
+<?php
+include 'vendor/autoload.php';
+$id = $_GET['id'];
+
+use GuzzleHttp\Client;
+
+$client = new Client();
+
+$promise = $client->request('DELETE', 'https://wwwmytravellingblogspotcom.000webhostapp.com/web-server/produk/edit.php', [
+    'body' => json_encode([
+        'id' => $id
+    ])
+]);
+
+header("Location: index.php");
